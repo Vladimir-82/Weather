@@ -27,11 +27,18 @@
                 <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
             </form>
             </div>
-            <div class="col-4 offset-1">
+            <div class="col-3 offset-1">
                 <h1>Информация</h1>
+
+                {% for info in all_info %}
                 <div class="alert alert-info">
-                    Погода в Минске
+                    <b>Город:</b> {{ info.city }}<br>
+                    <b>Температура:</b> {{ info.temp }}<br>
+                    <b>Влажность:</b> {{ info.humidity }}<br>
+                    <img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail">
                 </div>
+
+                {% endfor %}
             </div>
         </div>
     </div>
