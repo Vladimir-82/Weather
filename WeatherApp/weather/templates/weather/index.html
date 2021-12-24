@@ -22,7 +22,7 @@
     </div>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-5 offset-1">
+            <div class="col-6 offset-0">
             <h1>Погода в вашем городе</h1>
             <form action="" method="post">
                 {% csrf_token %}
@@ -31,7 +31,7 @@
                 <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
             </form>
             </div>
-            <div class="col-3 offset-1">
+            <div class="col-3 offset-0">
                 <h1>Информация</h1>
 
                 {% for info in all_info %}
@@ -39,9 +39,7 @@
                     <b>Город:</b> {{ info.city }}<img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail"><br>
                     <b>Температура:</b> {{ info.temp }}<br>
                     <b>Влажность:</b> {{ info.humidity }}% <br>
-
                 </div>
-
                 {% endfor %}
             </div>
         </div>
