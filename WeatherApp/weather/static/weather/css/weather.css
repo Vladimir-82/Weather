@@ -1,4 +1,14 @@
 img {
-    width: 70px;
+    width: 100px;
     float: left;
+    padding: 2.5%;
+}
+
+img.img-thumbnail {
+    width: 50px;
+    float: right;
+}
+
+alert alert-info.btn btn-success {
+    float: right;
 }

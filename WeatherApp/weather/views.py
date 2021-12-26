@@ -2,6 +2,7 @@ import requests
 from django.shortcuts import render
 from .models import City
 from .forms import CityForm
+from django.views.generic import DeleteView
 
 def index(request):
 
@@ -32,3 +33,4 @@ def index(request):
 
 
     return render(request, 'weather/index.html', context)
+
