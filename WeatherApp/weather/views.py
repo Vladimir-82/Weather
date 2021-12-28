@@ -19,6 +19,17 @@ def index(request):
 
     all_cities = []
 
+    # if (request.method == 'DELETE'):
+    #     city_name = request.DELETE.get('city_name', False)
+    #     if city_name:
+    #         cities.filter(name=city_name).first().remove()
+    if (request.method == 'DELETE'):
+        city_name = request.DELETE.get(name='city_name')
+        print((city_name))
+        if city_name:
+            City.objects.filter(name=city_name).delete()
+
+
     for city in cities:
         res = requests.get(url.format(city.name)).json()
         city_info = {
