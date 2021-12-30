@@ -36,13 +36,14 @@
                 {% for info in all_info %}
                 <div class="alert alert-info">
                     <b>Город:</b> {{ info.city }}<img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail"><br>
-                    <b>Температура:</b> {{ info.temp }}<br>
+                    <b>Температура:</b> {{ info.temp }}<sup>o</sup>C<br>
                     <b>Влажность:</b> {{ info.humidity }}% <br>
 
-                    <form action="" method="delete">
+                    <form action="" method="post">
                     {% csrf_token %}
-                    <input name="city_name" id="city_name" value="{{ info.city }}">
-                    <button class="btn btn-success" type="submit">Удалить</button>
+                    <input type="hidden" name="_method" value="delete">
+                    <input name="city_name" id="city_name" value="{{ info.city }}" class="mt-3 btn btn-info" hidden>
+                    <input value="Удалить" type="submit">
                     </form>
 
                 </div>

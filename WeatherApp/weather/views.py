@@ -2,36 +2,31 @@ import requests
 from django.shortcuts import render
 from .models import City
 from .forms import CityForm
-from django.views.generic import DeleteView
+
+
 
 def index(request):
-
     appid = '31bd6b6a3c005a57dc32dbd102f5b6b1'
     url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=' + appid
-
+    cities = City.objects.all()
     if (request.method == 'POST'):
-        form = CityForm(request.POST)
-        form.save()
+        if request.POST.get('_method') == 'delete':
+            city_name = request.POST.get('city_name', False)
+            if city_name:
+                cities.filter(name=city_name).first().delete()
+        else:
+            form = CityForm(request.POST)
+            form.save()
 
     form = CityForm()
 
-    cities = City.objects.all()
-
     all_cities = []
-
-    # if (request.method == 'DELETE'):
-    #     city_name = request.DELETE.get('city_name', False)
-    #     if city_name:
-    #         cities.filter(name=city_name).first().remove()
-    if (request.method == 'DELETE'):
-        city_name = request.DELETE.get(name='city_name')
-        print((city_name))
-        if city_name:
-            City.objects.filter(name=city_name).delete()
-
-
     for city in cities:
         res = requests.get(url.format(city.name)).json()
+        if res == {'cod': '404', 'message': 'city not found'}:  #проверка
+            print('Такого города не существует')
+            continue
+
         city_info = {
             'city': city.name,
             'temp': res['main']['temp'],
@@ -39,9 +34,6 @@ def index(request):
             'humidity': res['main']['humidity']
         }
         all_cities.append(city_info)
-
     context = {'all_info': all_cities, 'form': form}
 
-
     return render(request, 'weather/index.html', context)
-
