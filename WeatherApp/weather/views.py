@@ -23,7 +23,7 @@ def index(request):
     all_cities = []
     for city in cities:
         res = requests.get(url.format(city.name)).json()
-        if res == {'cod': '404', 'message': 'city not found'}:  #проверка
+        if res == {'cod': '404', 'message': 'city not found'}:
             print('Такого города не существует')
             continue
 
@@ -37,3 +37,11 @@ def index(request):
     context = {'all_info': all_cities, 'form': form}
 
     return render(request, 'weather/index.html', context)
+
+
+def info(request):
+    return render(request, 'weather/info.html', None)
+
+
+def doc(request):
+    return render(request, 'weather/doc.html', None)

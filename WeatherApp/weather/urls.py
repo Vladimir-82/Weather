@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('api/delete/<int>')
+    path('info', views.info, name='info'),
+    path('doc', views.doc, name='doc'),
 ]
