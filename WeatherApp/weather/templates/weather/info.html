@@ -1,4 +1,12 @@
 {% extends "layout/basic.html" %}
+<title>{% block title %}Контакты разработчика{% endblock %}</title>
 {% block content %}
-<p>Просто информация</p>
+<h1>Мои контакты и ссылки</h1>
+<img src="https://cdn.pixabay.com/photo/2017/12/02/14/38/contact-us-2993000_960_720.jpg" class="info">
+<ul>
+    <li><a href="tel:+375295603750"><i class="fas fa-address-card"> Call me</i></a></li>
+    <li><a href="mailto:grun_gespenst@tut.by"><i class="fas fa-address-card"> Email</i></a></li>
+    <li><a href="https://github.com/Vladimir-82/portfolio"><i class="fab fa-hacker-news"></i> GIT</a></li>
+    <li><a href="https://www.codewars.com/users/Vladimir-82"><i class="fab fa-hacker-news"></i> Codewars</a></li>
+</ul>
 {% endblock %}

@@ -1,11 +1,16 @@
 img {
-    width: 100px;
+    width: 150px;
     float: left;
     padding: 2.5%;
 }
 
-img.img-thumbnail {
-    width: 50px;
+.img-thumbnail {
+    width: 70px;
+    float: right;
+}
+
+.info {
+    width: 500px;
     float: right;
 }
 
