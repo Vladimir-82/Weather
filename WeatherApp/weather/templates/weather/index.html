@@ -9,6 +9,11 @@
             <label for="city">Город</label>
             {{ form.name }}
             <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
         </form>
         </div>
         <div class="col-4 offset-0">

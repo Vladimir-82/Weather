@@ -3,6 +3,8 @@ from django.shortcuts import render
 from .models import City
 from .forms import CityForm
 
+from django.contrib import messages
+
 
 
 def index(request):
@@ -24,7 +26,7 @@ def index(request):
     for city in cities:
         res = requests.get(url.format(city.name)).json()
         if res == {'cod': '404', 'message': 'city not found'}:
-            print('Такого города не существует')
+            messages.add_message(request, messages.INFO, 'Такого города не существует')
             cities.filter(name=city).delete()
             continue
 
