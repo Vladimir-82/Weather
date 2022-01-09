@@ -10,9 +10,12 @@
             {{ form.name }}
             <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
             {% if messages %}
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
+                <div class="msg">
+                    {% for message in messages %}
+                        <input type="button" value="{{ message }}" class="mt-2 btn btn-warning">
+<!--                        <button>{{ message }}</button>-->
+                    {% endfor %}
+                </div>
             {% endif %}
         </form>
         </div>
@@ -27,7 +30,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="_method" value="delete">
                 <input name="city_name" id="city_name" value="{{ info.city }}" class="mt-3 btn btn-info" hidden>
-                <input value="Удалить" type="submit">
+                <input value="Удалить" type="submit" class="mt-2 btn btn-info">
                 </form>
             </div>
             {% endfor %}
