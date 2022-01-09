@@ -12,7 +12,7 @@
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <img src="{% static 'weather/img/orange_.jpg' %}" alt="Лого">
+        <img src="{% static 'weather/img/orange_.jpg' %}" alt="Лого" class="logo">
         <span class="fs-1">Orange superfruit</span>
       </a>
 
@@ -20,7 +20,7 @@
         <a class="me-3 py-2 text-dark text-decoration-none" href="/" class="d-flex align-items-center text-dark text-decoration-none">Главная</a>
         <a class="me-3 py-2 text-dark text-decoration-none" href="/info">Контакты разработчика</a>
       </nav>
-      <a class="btn btn-outline-primary" href="/doc">Документация</a>
+      <a class="btn btn-outline-primary" href="/doc">Неизвестные факты о погоде</a>
     </div>
     <section>
         {% block content %}
