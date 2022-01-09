@@ -13,7 +13,7 @@ def index(request):
         if request.POST.get('_method') == 'delete':
             city_name = request.POST.get('city_name', False)
             if city_name:
-                cities.filter(name=city_name).first().delete()
+                cities.filter(name=city_name).delete()
         else:
             form = CityForm(request.POST)
             form.save()
@@ -25,6 +25,7 @@ def index(request):
         res = requests.get(url.format(city.name)).json()
         if res == {'cod': '404', 'message': 'city not found'}:
             print('Такого города не существует')
+            cities.filter(name=city).delete()
             continue
 
         city_info = {
