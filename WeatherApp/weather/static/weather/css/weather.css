@@ -18,6 +18,6 @@ alert alert-info.btn btn-success {
     float: right;
 }
 
-.msg {
+.alert-danger {
     margin: 20px;
 }

@@ -10,12 +10,11 @@
             {{ form.name }}
             <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
             {% if messages %}
-                <div class="msg">
                     {% for message in messages %}
-                        <input type="button" value="{{ message }}" class="mt-2 btn btn-warning">
-<!--                        <button>{{ message }}</button>-->
+                        <div class="alert alert-danger" role="alert">
+                             {{ message }}
+                        </div>
                     {% endfor %}
-                </div>
             {% endif %}
         </form>
         </div>
